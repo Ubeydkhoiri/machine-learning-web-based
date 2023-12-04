@@ -1,8 +1,8 @@
 import model # Import the python file containing the ML model
-from flask import Flask, request, render_template,jsonify # Import flask libraries
+from flask import Flask, request, render_template # Import flask libraries
 
 # Initialize the flask class and specify the templates directory
-app = Flask(__name__,template_folder="templates")
+app = Flask(__name__, template_folder="templates")
 
 # Default route set as 'home'
 @app.route('/home')
@@ -25,9 +25,10 @@ def classify_type():
 
         # Render the output in new HTML page
         return render_template('output.html', survive=survive, name=name)
-    except:
-        return 'Error'
+    
+    except Exception as e:
+        return f'error: {e}'
 
 # Run the Flask server
-if(__name__=='__main__'):
+if __name__=='__main__':
     app.run(debug=True)        

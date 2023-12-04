@@ -1,5 +1,4 @@
 # Importing necessary libraries
-import pandas as pd
 import numpy as np
 import seaborn as sns
 from sklearn.tree import DecisionTreeClassifier
@@ -23,7 +22,7 @@ y = titanic['survived']  # Extracting the target/dependent variable
 
 
 # Modelling
-model_dt = DecisionTreeClassifier()
+model_dt = DecisionTreeClassifier(random_state=0)
 model_dt.fit(X, y)
 
 def classify(a, b, c, d, e, f):
